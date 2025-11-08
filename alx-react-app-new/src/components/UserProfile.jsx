@@ -3,14 +3,14 @@ export default function UserProfile({ name, age, bio }) {
     <div style={{ border: "1px solid gray", padding: "10px", margin: "10px" }}>
       <h2
         style={{
-          color: "white",
+          color: "blue",
           textAlign: "center",
         }}
       >
         {name}
       </h2>
       <p style={{ color: "white", textAlign: "center", fontWeight: "bold" }}>
-        Age: {age}
+        Age: <span style={{ fontWeight: "bold" }}>{age}</span>
       </p>
       <p style={{ color: "white", fontSize: "15px" }}>
         <em>Bio: {bio}</em>

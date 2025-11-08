@@ -1,11 +1,10 @@
 export default function UserProfile({ name, age, bio }) {
   return (
-    <div>
+    <div style={{ border: "1px solid gray", padding: "10px", margin: "10px" }}>
       <h2
         style={{
           color: "white",
           textAlign: "center",
-          border: "1px solid beige",
         }}
       >
         {name}

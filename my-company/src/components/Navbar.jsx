@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
-    <nav style={{ display: "inline-flex" }}>
+    <nav
+      style={{
+        backgroundColor: "white",
+        justifyContent: "center",
+        display: "inline-flex",
+      }}
+    >
       <Link to="/" style={{ padding: "15px" }}>
         Home
       </Link>

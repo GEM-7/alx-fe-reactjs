@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-export default function Nav() {
+export default function Navbar() {
   return (
     <nav style={{ display: "inline-flex" }}>
       <Link to="/" style={{ padding: "15px" }}>

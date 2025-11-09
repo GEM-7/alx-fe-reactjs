@@ -5,24 +5,31 @@ This project is part of my ALX Frontend Development journey, focusing on masteri
 ## Project Overview
 
 In this project, I'm learning and implementing:
+
 - React setup and configuration
 - JSX syntax and usage
 - Component creation and management
 - Props and state handling
 - Basic React hooks
+- React Routing
 
 ## Project Setup
 
 1. Repository cloning:
+
 ```bash
 git clone [your-repo-url]
 cd [repo-name]
 ```
+
 2. Installing dependencies:
+
 ```bash
 npm install
 ```
+
 3. Running development server:
+
 ```bash
 npm start
 ```
@@ -30,6 +37,7 @@ npm start
 ## Learning Progress
 
 Through this project, I'm working to:
+
 - Understand React's core philosophy and architecture
 - Master JSX syntax and its JavaScript integration
 - Build functional and class components

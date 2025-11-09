@@ -20,7 +20,9 @@ function App() {
       <WelcomeMessage />
       <Header />
       <MainContent />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      <UserContext.Provider value={props}>
+        <UserProfile />
+      </UserContext.Provider>
       <UserContext.Provider value={userData}>
         <ProfilePage />
       </UserContext.Provider>

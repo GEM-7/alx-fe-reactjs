@@ -66,3 +66,15 @@ export default function Search() {
     </div>
   );
 }
+
+// UserDetails sub-component for displaying successful results
+const UserDetails = ({ user }) => (
+  <div>
+    <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
+    <h3>{user.name || user.login}</h3>
+    <p>@{user.login}</p>
+    <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+      View Profile
+    </a>
+  </div>
+);

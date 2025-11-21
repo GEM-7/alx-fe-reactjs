@@ -34,7 +34,7 @@ export default function Search() {
         return <p>Loading...</p>;
 
       case STATUS.ERROR:
-        return <p>Looks like we can't find the user.</p>;
+        return <p>Looks like we cant find the user.</p>;
 
       case STATUS.SUCCESS:
         return <UserDetails user={userData} />;

@@ -2,7 +2,18 @@ import { useRecipeStore } from "./recipeStore";
 import { Link } from "react-router-dom";
 
 export default function RecipeList() {
-  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const recipes = useRecipeStore((state) => state.recipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
+
+  const filteredRecipes = recipes.filter((recipe) => {
+    if (!searchTerm) return true;
+
+    const lowerCaseTerm = searchTerm.toLowerCase();
+    return (
+      recipe.title.toLowerCase().includes(lowerCaseTerm) ||
+      recipe.description.toLowerCase().includes(lowerCaseTerm)
+    );
+  });
 
   return (
     <div

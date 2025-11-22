@@ -1,55 +1,59 @@
 import { create } from 'zustand'
 
+// Mock Data: Initializing the state array here ensures recipes display immediately upon app load.
+const INITIAL_RECIPE_DATA = [
+    {
+        id: 'r1',
+        title: 'Spicy Tacos',
+        description: 'Quick and easy beef tacos with a spicy kick.',
+        ingredients: ['beef', 'taco seasoning', 'tortillas']
+    },
+    {
+        id: 'r2',
+        title: 'Classic Lasagna',
+        description: 'Layers of pasta, ricotta, and rich meat sauce.',
+        ingredients: ['pasta', 'ricotta', 'meat sauce']
+    },
+    {
+        id: 'r3',
+        title: 'Vegan Curry',
+        description: 'Coconut milk and vegetable curry served with rice.',
+        ingredients: ['coconut milk', 'vegetables', 'curry paste']
+    },
+];
+
 export const useRecipeStore = create((set, get) => ({
-    recipes: [],
+    // --- State Variables ---
+    recipes: INITIAL_RECIPE_DATA, // Initialized with data to prevent the list from being empty on startup.
     searchTerm: '',
-    filteredRecipes: [],
+    favorites: [], // Stores an array of recipe IDs that are marked as favorites.
+    recommendations: [], // Stores the computed array of recommended recipe objects.
 
-    addRecipe: (newRecipe) => {
-        set(state => ({
-            recipes: [...state.recipes, newRecipe]
-        }));
-        get().filterRecipes();
-    },
+    // --- Core Recipe Actions ---
 
-    deleteRecipe: (recipeId) => {
-        set(state => ({
-            recipes: state.recipes.filter(recipe => recipe.id !== recipeId)
-        }));
-        get().filterRecipes();
-    },
+    // --- Search Action ---
+    setSearchTerm: (term) => set({ searchTerm: term }),
 
-    updateRecipe: (updatedRecipe) => {
-        set(state => ({
-            recipes: state.recipes.map(recipe =>
-                recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-            )
-        }));
-        get().filterRecipes();
-    },
+    // --- Favorites and Recommendations Actions ---
+    addFavorite: (recipeId) => set(state => ({
+        favorites: state.favorites.includes(recipeId)
+            ? state.favorites
+            : [...state.favorites, recipeId]
+    })),
+    removeFavorite: (recipeId) => set(state => ({
+        favorites: state.favorites.filter(id => id !== recipeId)
+    })),
 
-    setRecipes: (recipes) => {
-        set({ recipes });
-        get().filterRecipes();
-    },
-
-    setSearchTerm: (term) => {
-        set({ searchTerm: term });
-        get().filterRecipes();
-    },
-
-    filterRecipes: () => set(state => {
-        if (!state.searchTerm) {
-            return { filteredRecipes: state.recipes };
-        }
-
-        const lowerCaseTerm = state.searchTerm.toLowerCase();
-
-        const newFilteredRecipes = state.recipes.filter(recipe =>
-            recipe.title.toLowerCase().includes(lowerCaseTerm) ||
-            recipe.description.toLowerCase().includes(lowerCaseTerm)
+    generateRecommendations: () => set(state => {
+        // Find recipes not currently in favorites.
+        const nonFavoriteRecipes = get().recipes.filter(recipe =>
+            !get().favorites.includes(recipe.id)
         );
 
-        return { filteredRecipes: newFilteredRecipes };
+        // Select the first 3 (simplest recommendation logic).
+        const recommended = nonFavoriteRecipes.slice(0, 3);
+
+        // Update the recommendations state.
+        return { recommendations: recommended };
     }),
 }));

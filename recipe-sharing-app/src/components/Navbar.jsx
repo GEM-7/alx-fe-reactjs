@@ -1,3 +1,4 @@
+// Navbar Component
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -14,6 +15,9 @@ export default function Navbar() {
       </Link>
       <Link to="/recipes" style={{ padding: "8px" }}>
         Recipe List
+      </Link>
+      <Link to="/favorites" style={{ padding: "8px" }}>
+        My Favorites
       </Link>
     </nav>
   );

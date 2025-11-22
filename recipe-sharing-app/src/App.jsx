@@ -4,6 +4,17 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
+import FavoritesList from "./components/FavoritesList";
+import RecommendationsList from "./components/RecommendationsList";
+
+const Home = () => (
+  <>
+    <p>Welcome, share your favorite recipes with us!</p>
+    <AddRecipeForm />
+    <hr />
+    <RecommendationsList />
+  </>
+);
 
 const RecipesPage = () => (
   <div style={{ padding: "20px" }}>
@@ -13,12 +24,7 @@ const RecipesPage = () => (
   </div>
 );
 
-const Home = () => (
-  <div style={{ border: "1px", borderRadius: "5px" }}>
-    <p>Welcome, share your favorite recipes with us!</p>
-    <AddRecipeForm />
-  </div>
-);
+const FavoritesPage = () => <FavoritesList />;
 
 function App() {
   return (
@@ -35,6 +41,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+
           <Route path="*" element={<h1>404: Page Not Found</h1>} />
         </Routes>
       </div>

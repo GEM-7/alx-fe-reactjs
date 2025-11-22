@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useRecipeStore } from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
+import FavoriteToggle from "./FavoriteToggle";
 
 export default function RecipeDetails() {
   const { recipeId } = useParams();
@@ -18,7 +19,7 @@ export default function RecipeDetails() {
   }
 
   const handleSave = () => {
-    setIsEditing(false); // Hide the form after saving
+    setIsEditing(false);
   };
 
   return (
@@ -30,6 +31,8 @@ export default function RecipeDetails() {
           <h1>{recipe.title}</h1>
           <p>{recipe.description}</p>
           <button onClick={() => setIsEditing(true)}>Edit Recipe</button>
+
+          <FavoriteToggle recipeId={recipe.id} />
         </>
       )}
 

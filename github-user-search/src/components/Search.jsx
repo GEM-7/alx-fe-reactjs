@@ -1,47 +1,7 @@
 import React, { useState } from "react";
 import { fetchAdvancedUserData } from "../services/githubService";
 import { useUserSearch } from "../store/useGithubUserSearch";
-
-const styles = {
-  // 1. Container Style
-  container: {
-    maxWidth: "800px",
-    margin: "20px auto",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    backgroundColor: "#fff",
-  },
-  // 2. Input Group Layout
-  inputGroup: {
-    display: "flex",
-    gap: "10px",
-    marginTop: "10px",
-    flexWrap: "wrap",
-  },
-  // 3. Button Styles
-  button: {
-    backgroundColor: "#4CAF50",
-    color: "white",
-    padding: "8px 15px",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontWeight: "bold",
-    minWidth: "150px",
-    transition: "background-color 0.2s",
-  },
-  buttonDisabled: {
-    backgroundColor: "#aaa",
-    cursor: "not-allowed",
-  },
-  resultsList: {
-    listStyle: "none",
-    padding: "0",
-  },
-};
-// ----------------------------------------------
+import styles from "../styles/Search.module.css";
 
 function Search() {
   const [username, setUsername] = useState("");

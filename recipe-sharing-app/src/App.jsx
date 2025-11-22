@@ -3,10 +3,12 @@ import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
 
 const RecipesPage = () => (
   <div style={{ padding: "20px" }}>
     <h2>Recipe List</h2>
+    <SearchBar />
     <RecipeList />
   </div>
 );

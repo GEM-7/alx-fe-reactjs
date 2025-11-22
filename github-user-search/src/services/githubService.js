@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useUserSearch } from '../store/useGithubUserSearch';
 
-const API_BASE_URL = import.meta.env.VITE_GITHUB_API_BASE_URL || "https://api.github.com";
 function buildQueryString(criteria) {
     // Start with the main search term (username) or a default high-traffic term
     let queryParts = [criteria.username || 'users'];

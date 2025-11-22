@@ -1,12 +1,14 @@
-import RecipeList from "./components/RecipeList";
+import React from "react";
 import AddRecipeForm from "./components/AddRecipeForm";
-import "./App.css";
+import RecipeList from "./components/RecipeList";
 
 function App() {
   return (
     <>
-      <RecipeList />
+      <h1>Recipe Sharing App</h1>
+      <p>Welcome, share your favorite recipes with us!</p>
       <AddRecipeForm />
+      <RecipeList />
     </>
   );
 }

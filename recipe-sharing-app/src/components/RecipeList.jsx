@@ -1,6 +1,7 @@
-import useRecipeStore from "./recipeStore.js";
+// RecipeList component
+import { useRecipeStore } from "./recipeStore";
 
-const RecipeList = () => {
+export default function RecipeList() {
   const recipes = useRecipeStore((state) => state.recipes);
 
   return (
@@ -13,5 +14,4 @@ const RecipeList = () => {
       ))}
     </div>
   );
-};
-export default RecipeList;
+}

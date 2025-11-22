@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchUserData } from "../services/githubService";
 import { useUserSearch } from "../store/useGithubUserSearch";
-import styles from "./styles.js";
+import { styles } from "./styles";
 
 function Search() {
   const [username, setUsername] = useState("");

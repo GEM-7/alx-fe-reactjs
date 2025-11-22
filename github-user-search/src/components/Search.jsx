@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService";
+import { fetchUserData } from "../services/githubService";
 import { useUserSearch } from "../store/useGithubUserSearch";
 import styles from "../styles/Search.module.css";
 
@@ -28,7 +28,7 @@ function Search() {
       minRepos: minRepos.trim(),
     };
 
-    await fetchAdvancedUserData(criteria);
+    await fetchUserData(criteria);
   };
 
   const renderContent = () => {

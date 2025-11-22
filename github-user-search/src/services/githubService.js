@@ -1,12 +1,31 @@
 import axios from 'axios';
-import { useUserSearch } from '../store/useGithubUserSearch.js';
+import { useUserSearch } from '../store/useGithubUserSearch';
 
-// Access the environment variables
 const API_BASE_URL = import.meta.env.VITE_GITHUB_API_BASE_URL || "https://api.github.com";
+function buildQueryString(criteria) {
+    // Start with the main search term (username) or a default high-traffic term
+    let queryParts = [criteria.username || 'users'];
 
-export async function fetchUserData(username) {
-    // GitHub API endpoint for user search
-    const endpoint = `${API_BASE_URL}/users/${username}`;
+    // Add location filter
+    if (criteria.location) {
+        queryParts.push(`location:${criteria.location}`);
+    }
+
+    // Add minimum repositories filter
+    if (criteria.minRepos && parseInt(criteria.minRepos) > 0) {
+        queryParts.push(`repos:>=${criteria.minRepos}`);
+    }
+
+    // Join all parts with the GitHub search separator (+)
+    return queryParts.join('+');
+}
+
+// Handles advanced search requests
+export async function fetchAdvancedUserData(criteria) {
+    const queryString = buildQueryString(criteria);
+
+    // Example API endpoint for advanced search
+    const endpoint = `${API_BASE_URL}/search/users?q=${queryString}&per_page=10`;
 
     const { startSearch, searchSuccess, searchError } = useUserSearch.getState();
 
@@ -14,15 +33,10 @@ export async function fetchUserData(username) {
 
     try {
         const response = await axios.get(endpoint);
+        // GitHub Search API returns { total_count, items: [...] }
         searchSuccess(response.data);
     } catch (error) {
-        // Handle specific errors like 404 (Not Found)
-        if (error.response && error.response.status === 404) {
-            // Error when user is not found
-            searchError();
-        } else {
-            // General error
-            searchError();
-        }
+        console.error("GitHub Search API Error:", error.response?.data || error);
+        searchError();
     }
 }

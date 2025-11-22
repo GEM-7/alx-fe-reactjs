@@ -22,7 +22,7 @@ function buildQueryString(criteria) {
 }
 
 
-export async function fetchAdvancedUserData(criteria) {
+export async function fetchUserData(criteria) {
     const queryString = buildQueryString(criteria);
 
     // Example API endpoint for advanced search

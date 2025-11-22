@@ -1,0 +1,5 @@
+/* stylelint-disable at-rule-no-unknown */
+/* Ensure PostCSS + Tailwind are configured in your build (postcss.config.js / tailwind.config.js) */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

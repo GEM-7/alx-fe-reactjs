@@ -27,7 +27,7 @@ export async function fetchAdvancedUserData(criteria) {
 
     // Example API endpoint for advanced search
     // Uses the defined API_BASE_URL constant
-    const endpoint = `${API_BASE_URL}/search/users?q=${queryString}&per_page=10`;
+    const endpoint = `https://api.github.com/search/users?q=${queryString}&per_page=10`;
 
     const { startSearch, searchSuccess, searchError } = useUserSearch.getState();
 

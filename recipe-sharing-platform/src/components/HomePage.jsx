@@ -24,7 +24,7 @@ function HomePage() {
       </h1>
 
       {/* Grid container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-8">
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} />
         ))}
@@ -39,7 +39,7 @@ const RecipeCard = ({ recipe }) => {
   return (
     <div
       className="
-        bg-white 
+        bg-grey-500 
         rounded-xl 
         shadow-lg 
         overflow-hidden 
@@ -47,11 +47,12 @@ const RecipeCard = ({ recipe }) => {
         hover:shadow-2xl 
         hover:scale-[1.02]
         cursor-pointer
+        text-center
       "
     >
       {/* Image */}
       <img
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-cover sm:h-56 lg:h-64 md:h-72"
         src={recipe.image}
         alt={recipe.title}
       />

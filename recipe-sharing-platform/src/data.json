@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper. Simple, yet deeply flavorful.",
+    "image": "https://via.placeholder.com/400x250?text=Carbonara"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth, buttery, & creamy tomato-based gravy. A British-Indian classic.",
+    "image": "https://via.placeholder.com/400x250?text=Tikka+Masala"
+  },
+  {
+    "id": 3,
+    "title": "Vegetable Pad Thai",
+    "summary": "A famous Thai stir-fry noodle dish with tofu, peanuts, bean sprouts, and a tangy sauce. Ready in 20 minutes!",
+    "image": "https://via.placeholder.com/400x250?text=Pad+Thai"
+  },
+  {
+    "id": 4,
+    "title": "Beef Bulgogi",
+    "summary": "Thinly sliced, marinated beef grilled or stir-fried. A staple of Korean BBQ, served with rice and lettuce wraps.",
+    "image": "https://via.placeholder.com/400x250?text=Bulgogi"
+  },
+  {
+    "id": 5,
+    "title": "Black Bean Burgers",
+    "summary": "Hearty, homemade vegetarian burgers made with black beans, spices, and breadcrumbs. A great meatless option.",
+    "image": "https://via.placeholder.com/400x250?text=Veggie+Burger"
+  },
+  {
+    "id": 6,
+    "title": "French Onion Soup",
+    "summary": "Classic French soup featuring caramelized onions in beef broth, topped with a crouton and a thick layer of melted Gruyère cheese.",
+    "image": "https://via.placeholder.com/400x250?text=Onion+Soup"
+  },
+  {
+    "id": 7,
+    "title": "Salmon with Dill Butter",
+    "summary": "Flaky oven-baked salmon filet topped with a simple, bright lemon and dill compound butter. Healthy and fast.",
+    "image": "https://via.placeholder.com/400x250?text=Salmon+Dill"
+  },
+  {
+    "id": 8,
+    "title": "Classic Belgian Waffles",
+    "summary": "Light, crispy, and airy waffles with deep pockets perfect for holding syrup and butter. A breakfast favorite.",
+    "image": "https://via.placeholder.com/400x250?text=Belgian+Waffles"
+  },
+  {
+    "id": 9,
+    "title": "Minestrone Soup",
+    "summary": "A thick Italian soup made with vegetables, pasta, and beans, often with the addition of seasonal vegetables. Hearty and warm.",
+    "image": "https://via.placeholder.com/400x250?text=Minestrone+Soup"
+  },
+  {
+    "id": 10,
+    "title": "Shrimp Scampi with Linguine",
+    "summary": "Shrimp cooked in a garlic, butter, and white wine sauce, served over a bed of tender linguine pasta. Elegant and quick.",
+    "image": "https://via.placeholder.com/400x250?text=Shrimp+Scampi"
+  }
+]

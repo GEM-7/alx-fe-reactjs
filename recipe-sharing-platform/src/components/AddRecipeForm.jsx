@@ -1,5 +1,38 @@
 import { useState } from "react";
 
+export function validate({
+  recipeName = "",
+  description = "",
+  ingredients = "",
+  instructions = "",
+} = {}) {
+  const errors = {};
+  const ingredientsArray = String(ingredients)
+    .split("\n")
+    .map((i) => i.trim())
+    .filter((i) => i.length > 0);
+  const instructionsArray = String(instructions)
+    .split("\n")
+    .map((i) => i.trim())
+    .filter((i) => i.length > 0);
+
+  if (String(recipeName).trim().length < 3) {
+    errors.recipeName = "Recipe name must be at least 3 characters.";
+  }
+  if (String(description).trim().length < 10) {
+    errors.description = "Description must be at least 10 characters.";
+  }
+  if (ingredientsArray.length === 0) {
+    errors.ingredients = "Please add at least one ingredient (one per line).";
+  }
+  if (instructionsArray.length === 0) {
+    errors.instructions =
+      "Please add at least one instruction step (one per line).";
+  }
+
+  return errors;
+}
+
 export default function AddRecipeForm() {
   const [recipeName, setRecipeName] = useState("");
   const [description, setDescription] = useState("");

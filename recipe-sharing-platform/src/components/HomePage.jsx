@@ -24,7 +24,7 @@ function HomePage() {
       </h1>
 
       {/* Grid container */}
-      <div className="sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-8">
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} />
         ))}
@@ -49,6 +49,7 @@ const RecipeCard = ({ recipe }) => {
         cursor-pointer
         text-center
       "
+      onClick={() => (window.location.href = `/recipe/${recipe.id}`)}
     >
       {/* Image */}
       <img

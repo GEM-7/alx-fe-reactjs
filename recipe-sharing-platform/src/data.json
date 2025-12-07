@@ -3,60 +3,127 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper. Simple, yet deeply flavorful.",
-    "image": "https://via.placeholder.com/400x250?text=Carbonara"
+    "image": "https://placehold.co/600x400/2980b9/ffffff?text=Carbonara",
+    "ingredients": [
+      "3 oz Guanciale or Pancetta",
+      "1 lb Spaghetti",
+      "2 large Egg Yolks",
+      "2 oz Pecorino Romano cheese",
+      "Freshly ground black pepper"
+    ],
+    "instructions": [
+      "Cook pasta according to package directions.",
+      "While pasta cooks, cook guanciale until crispy; reserve rendered fat.",
+      "In a bowl, whisk egg yolks, cheese, and pepper.",
+      "Drain pasta, reserving some cooking water. Toss hot pasta with guanciale and reserved fat.",
+      "Quickly mix in the egg mixture, adding reserved pasta water as needed to form a creamy sauce. Serve immediately."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth, buttery, & creamy tomato-based gravy. A British-Indian classic.",
-    "image": "https://via.placeholder.com/400x250?text=Tikka+Masala"
+    "image": "https://placehold.co/600x400/c0392b/ffffff?text=Tikka+Masala",
+    "ingredients": [
+      "1.5 lb Chicken Breast",
+      "1 cup Plain Yogurt (for marinade)",
+      "1 tbsp Ginger-Garlic paste",
+      "1 can (14.5 oz) Crushed Tomatoes",
+      "1 cup Heavy Cream",
+      "Garam Masala, Turmeric, Cumin"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and spices for at least 30 minutes.",
+      "Grill or bake chicken until cooked through.",
+      "Sauté onions, garlic, and ginger until soft. Add crushed tomatoes and spices.",
+      "Simmer for 20 minutes, then stir in heavy cream and cooked chicken. Serve with rice."
+    ]
   },
   {
     "id": 3,
     "title": "Vegetable Pad Thai",
-    "summary": "A famous Thai stir-fry noodle dish with tofu, peanuts, bean sprouts, and a tangy sauce. Ready in 20 minutes!",
-    "image": "https://via.placeholder.com/400x250?text=Pad+Thai"
+    "summary": "A famous Thai stir-fry noodle dish...",
+    "image": "https://placehold.co/600x400/27ae60/ffffff?text=Pad+Thai",
+    "ingredients": ["Noodles", "Tofu", "Peanuts", "Sauce"],
+    "instructions": [
+      "Stir-fry ingredients.",
+      "Add noodles and sauce.",
+      "Toss and serve."
+    ]
   },
   {
     "id": 4,
     "title": "Beef Bulgogi",
-    "summary": "Thinly sliced, marinated beef grilled or stir-fried. A staple of Korean BBQ, served with rice and lettuce wraps.",
-    "image": "https://via.placeholder.com/400x250?text=Bulgogi"
+    "summary": "Thinly sliced, marinated beef...",
+    "image": "https://placehold.co/600x400/f39c12/ffffff?text=Bulgogi",
+    "ingredients": ["Beef", "Soy Sauce", "Sugar", "Garlic"],
+    "instructions": ["Marinate beef.", "Grill until done.", "Serve with rice."]
   },
   {
     "id": 5,
     "title": "Black Bean Burgers",
-    "summary": "Hearty, homemade vegetarian burgers made with black beans, spices, and breadcrumbs. A great meatless option.",
-    "image": "https://via.placeholder.com/400x250?text=Veggie+Burger"
+    "summary": "Hearty, homemade vegetarian burgers...",
+    "image": "https://placehold.co/600x400/9b59b6/ffffff?text=Black+Bean+Burger",
+    "ingredients": ["Black Beans", "Breadcrumbs", "Spices"],
+    "instructions": [
+      "Mash beans and mix.",
+      "Form patties and bake.",
+      "Serve on buns."
+    ]
   },
   {
     "id": 6,
     "title": "French Onion Soup",
-    "summary": "Classic French soup featuring caramelized onions in beef broth, topped with a crouton and a thick layer of melted Gruyère cheese.",
-    "image": "https://via.placeholder.com/400x250?text=Onion+Soup"
+    "summary": "Classic French soup featuring caramelized onions...",
+    "image": "https://placehold.co/600x400/7f8c8d/ffffff?text=Onion+Soup",
+    "ingredients": ["Onions", "Beef Broth", "Gruyère Cheese"],
+    "instructions": [
+      "Caramelize onions.",
+      "Add broth and simmer.",
+      "Top with bread and cheese, then broil."
+    ]
   },
   {
     "id": 7,
     "title": "Salmon with Dill Butter",
-    "summary": "Flaky oven-baked salmon filet topped with a simple, bright lemon and dill compound butter. Healthy and fast.",
-    "image": "https://via.placeholder.com/400x250?text=Salmon+Dill"
+    "summary": "Flaky oven-baked salmon filet...",
+    "image": "https://placehold.co/600x400/1abc9c/ffffff?text=Salmon",
+    "ingredients": ["Salmon", "Butter", "Dill", "Lemon"],
+    "instructions": [
+      "Make dill butter.",
+      "Bake salmon.",
+      "Top with butter and serve."
+    ]
   },
   {
     "id": 8,
     "title": "Classic Belgian Waffles",
-    "summary": "Light, crispy, and airy waffles with deep pockets perfect for holding syrup and butter. A breakfast favorite.",
-    "image": "https://via.placeholder.com/400x250?text=Belgian+Waffles"
+    "summary": "Light, crispy, and airy waffles...",
+    "image": "https://placehold.co/600x400/d35400/ffffff?text=Waffles",
+    "ingredients": ["Flour", "Eggs", "Yeast"],
+    "instructions": ["Mix batter.", "Let rise.", "Cook in waffle iron."]
   },
   {
     "id": 9,
     "title": "Minestrone Soup",
-    "summary": "A thick Italian soup made with vegetables, pasta, and beans, often with the addition of seasonal vegetables. Hearty and warm.",
-    "image": "https://via.placeholder.com/400x250?text=Minestrone+Soup"
+    "summary": "A thick Italian soup made with vegetables...",
+    "image": "https://placehold.co/600x400/34495e/ffffff?text=Minestrone",
+    "ingredients": ["Vegetables", "Pasta", "Beans", "Broth"],
+    "instructions": [
+      "Chop vegetables.",
+      "Simmer everything until pasta is cooked."
+    ]
   },
   {
     "id": 10,
     "title": "Shrimp Scampi with Linguine",
-    "summary": "Shrimp cooked in a garlic, butter, and white wine sauce, served over a bed of tender linguine pasta. Elegant and quick.",
-    "image": "https://via.placeholder.com/400x250?text=Shrimp+Scampi"
+    "summary": "Shrimp cooked in a garlic, butter, and white wine sauce...",
+    "image": "https://placehold.co/600x400/f1c40f/000000?text=Shrimp+Scampi",
+    "ingredients": ["Shrimp", "Linguine", "Garlic", "Butter", "Wine"],
+    "instructions": [
+      "Cook pasta.",
+      "Sauté shrimp in sauce.",
+      "Toss with linguine."
+    ]
   }
 ]

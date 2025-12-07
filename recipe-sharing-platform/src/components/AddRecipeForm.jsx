@@ -6,6 +6,7 @@ export default function AddRecipeForm() {
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
   const [submittedRecipe, setSubmittedRecipe] = useState(null);
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,27 @@ export default function AddRecipeForm() {
       .split("\n")
       .map((item) => item.trim())
       .filter((item) => item.length > 0);
+
+    const newErrors = {};
+    if (recipeName.trim().length < 3) {
+      newErrors.recipeName = "Recipe name must be at least 3 characters.";
+    }
+    if (description.trim().length < 10) {
+      newErrors.description = "Description must be at least 10 characters.";
+    }
+    if (ingredientsArray.length === 0) {
+      newErrors.ingredients =
+        "Please add at least one ingredient (one per line).";
+    }
+    if (instructionsArray.length === 0) {
+      newErrors.instructions =
+        "Please add at least one instruction step (one per line).";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     const newRecipe = {
       id: Date.now(),
@@ -35,6 +57,7 @@ export default function AddRecipeForm() {
     setDescription("");
     setIngredients("");
     setInstructions("");
+    setErrors({});
   };
 
   return (
@@ -57,9 +80,24 @@ export default function AddRecipeForm() {
             name="title"
             value={recipeName}
             required
-            className="p-2 border border-gray-300 rounded-md flex-1"
-            onChange={(e) => setRecipeName(e.target.value)}
+            aria-invalid={errors.recipeName ? "true" : "false"}
+            aria-describedby={errors.recipeName ? "title-error" : undefined}
+            className={
+              "p-2 border rounded-md flex-1 " +
+              (errors.recipeName ? "border-red-500" : "border-gray-300")
+            }
+            onChange={(e) => {
+              setRecipeName(e.target.value);
+              if (errors.recipeName && e.target.value.trim().length >= 3) {
+                setErrors((prev) => ({ ...prev, recipeName: undefined }));
+              }
+            }}
           />
+          {errors.recipeName && (
+            <p id="title-error" className="text-sm text-red-600 mt-1 w-full">
+              {errors.recipeName}
+            </p>
+          )}
         </div>
 
         <div className="flex justify-between gap-4 w-full">
@@ -75,9 +113,29 @@ export default function AddRecipeForm() {
             value={description}
             rows="2"
             required
-            className="p-2 border border-gray-300 rounded-md flex-1"
-            onChange={(e) => setDescription(e.target.value)}
+            aria-invalid={errors.description ? "true" : "false"}
+            aria-describedby={
+              errors.description ? "description-error" : undefined
+            }
+            className={
+              "p-2 border rounded-md flex-1 " +
+              (errors.description ? "border-red-500" : "border-gray-300")
+            }
+            onChange={(e) => {
+              setDescription(e.target.value);
+              if (errors.description && e.target.value.trim().length >= 10) {
+                setErrors((prev) => ({ ...prev, description: undefined }));
+              }
+            }}
           ></textarea>
+          {errors.description && (
+            <p
+              id="description-error"
+              className="text-sm text-red-600 mt-1 w-full"
+            >
+              {errors.description}
+            </p>
+          )}
         </div>
 
         <div className="flex justify-between gap-4 w-full">
@@ -93,10 +151,34 @@ export default function AddRecipeForm() {
             value={ingredients}
             rows="4"
             required
+            aria-invalid={errors.ingredients ? "true" : "false"}
+            aria-describedby={
+              errors.ingredients ? "ingredients-error" : undefined
+            }
             placeholder="e.g., 1 cup flour&#10;2 large eggs&#10;1 tsp salt"
-            className="p-2 border border-gray-300 rounded-md flex-1"
-            onChange={(e) => setIngredients(e.target.value)}
+            className={
+              "p-2 border rounded-md flex-1 " +
+              (errors.ingredients ? "border-red-500" : "border-gray-300")
+            }
+            onChange={(e) => {
+              setIngredients(e.target.value);
+              const parts = e.target.value
+                .split("\n")
+                .map((i) => i.trim())
+                .filter((i) => i.length > 0);
+              if (errors.ingredients && parts.length > 0) {
+                setErrors((prev) => ({ ...prev, ingredients: undefined }));
+              }
+            }}
           ></textarea>
+          {errors.ingredients && (
+            <p
+              id="ingredients-error"
+              className="text-sm text-red-600 mt-1 w-full"
+            >
+              {errors.ingredients}
+            </p>
+          )}
         </div>
 
         <div className="flex justify-between gap-4 w-full">
@@ -112,18 +194,66 @@ export default function AddRecipeForm() {
             value={instructions}
             rows="4"
             required
+            aria-invalid={errors.instructions ? "true" : "false"}
+            aria-describedby={
+              errors.instructions ? "instructions-error" : undefined
+            }
             placeholder="e.g., Preheat oven to 350°F.&#10;Mix dry ingredients.&#10;Bake for 30 minutes."
-            className="p-2 border border-gray-300 rounded-md flex-1"
-            onChange={(e) => setInstructions(e.target.value)}
+            className={
+              "p-2 border rounded-md flex-1 " +
+              (errors.instructions ? "border-red-500" : "border-gray-300")
+            }
+            onChange={(e) => {
+              setInstructions(e.target.value);
+              const parts = e.target.value
+                .split("\n")
+                .map((i) => i.trim())
+                .filter((i) => i.length > 0);
+              if (errors.instructions && parts.length > 0) {
+                setErrors((prev) => ({ ...prev, instructions: undefined }));
+              }
+            }}
           ></textarea>
+          {errors.instructions && (
+            <p
+              id="instructions-error"
+              className="text-sm text-red-600 mt-1 w-full"
+            >
+              {errors.instructions}
+            </p>
+          )}
         </div>
 
-        <button
-          type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-lg font-semibold transition duration-150 mt-4 shadow-md"
-        >
-          Add Recipe
-        </button>
+        {(() => {
+          const ingredientsCount = ingredients
+            .split("\n")
+            .map((i) => i.trim())
+            .filter((i) => i.length > 0).length;
+          const instructionsCount = instructions
+            .split("\n")
+            .map((i) => i.trim())
+            .filter((i) => i.length > 0).length;
+          const isFormValid =
+            recipeName.trim().length >= 3 &&
+            description.trim().length >= 10 &&
+            ingredientsCount > 0 &&
+            instructionsCount > 0;
+
+          return (
+            <button
+              type="submit"
+              disabled={!isFormValid}
+              className={
+                "py-2 px-6 rounded-lg font-semibold transition duration-150 mt-4 shadow-md " +
+                (isFormValid
+                  ? "bg-indigo-600 hover:bg-indigo-700 text-white"
+                  : "bg-gray-200 text-gray-500 cursor-not-allowed")
+              }
+            >
+              Add Recipe
+            </button>
+          );
+        })()}
       </form>
 
       {submittedRecipe && (
